@@ -464,6 +464,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
 --- !u!1 &1801512476
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,12 +705,16 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+>>>>>>> c8615a54a50e6b03babc9c95caba311b9b11475e
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
+<<<<<<< HEAD
+=======
   - {fileID: 208932}
   - {fileID: 1964461399}
   - {fileID: 166583122}
+>>>>>>> c8615a54a50e6b03babc9c95caba311b9b11475e
