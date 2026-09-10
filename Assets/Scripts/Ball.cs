@@ -2,15 +2,30 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    // 初期速度(v0)
-    public Vector2 initialSpeed = Vector2.zero;
+    [SerializeField] private float m_speed = 15;
+    [SerializeField] private Vector2 m_direction = new(1, 1);
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Rigidbody2D m_rigidbody2D;
+    private Vector2 m_velocity;
+
+    private void Start()
     {
-        // 移動に使用するRigidbodyを取得する
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        // Rigidbodyに初期速度を適用させる
-        rb.linearVelocity = initialSpeed;
+        m_rigidbody2D = GetComponent<Rigidbody2D>();
+
+        m_direction.Normalize();
+
+        m_velocity = m_direction * m_speed;
+        m_rigidbody2D.linearVelocity = m_velocity;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        var inDirection = m_velocity;
+        var inNormal = other.contacts[0].normal;
+
+        m_direction = Vector2.Reflect(inDirection, inNormal).normalized;
+
+        m_velocity = m_direction * m_speed;
+        m_rigidbody2D.linearVelocity = m_velocity;
     }
 }
