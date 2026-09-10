@@ -7,6 +7,7 @@ TagManager:
   - Ball
   - Block
   - BorderLine
+  - OutLinr
   layers:
   - Default
   - TransparentFX
