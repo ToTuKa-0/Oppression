@@ -186,7 +186,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  nextSceneName: TitleScene
+  nextSceneName: ResultScene
 --- !u!1 &6757469897129696932
 GameObject:
   m_ObjectHideFlags: 0
