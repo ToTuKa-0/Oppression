@@ -11,6 +11,8 @@ public class PLayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0f)
+            return;
 
         if (Input.GetKey(KeyCode.D))
         {
