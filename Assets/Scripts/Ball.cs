@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     private Vector2 m_velocity;
 
     public GameObject ballPrefab_ = null;
+    public GameObject barrierPrefab_ = null;
 
     private void Start()
     {
@@ -22,6 +23,10 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        // 対象がボールやバフ・デバフだった場合は反射しない
+        if (other.gameObject.CompareTag("Ball") || other.gameObject.CompareTag("Buff"))
+            return;
+
         var inDirection = m_velocity;
         var inNormal = other.contacts[0].normal;
 
@@ -83,7 +88,8 @@ public class Ball : MonoBehaviour
     // 残機増加の関数
     public void Protect()
     {
-
+        // Barrierプレハブから新しいインスタンスを生成
+        GameObject Barrier = Instantiate(barrierPrefab_);
     }
 
 }
