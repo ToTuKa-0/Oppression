@@ -2,14 +2,21 @@ using UnityEngine;
 
 public class SE : MonoBehaviour
 {
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip se;
+    public AudioClip hitSE;
 
-    void Update()
+    private AudioSource audioSource;
+
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // A以外のオブジェクトに当たったら
+        if (collision.gameObject.name != "Ball")
         {
-            audioSource.PlayOneShot(se);
+            audioSource.PlayOneShot(hitSE);
         }
     }
 }
